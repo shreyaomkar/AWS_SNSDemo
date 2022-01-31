@@ -1,0 +1,29 @@
+package com.amazonaws.samples;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import com.amazonaws.auth.BasicAWSCredentials;
+import com.amazonaws.services.sns.AmazonSNSClient;
+import com.amazonaws.services.sns.model.CreateTopicRequest;
+import com.amazonaws.services.sns.model.CreateTopicResult;
+import com.amazonaws.services.sns.model.PublishRequest;
+import com.amazonaws.services.sns.model.PublishResult;
+import com.amazonaws.services.sns.model.SubscribeRequest;
+
+public class SNSApplication 
+{
+	public static void main(String args[])
+	{
+		String ACCESS_KEY = "AKIARXBJSPVLQJESECGS";
+        String SECRET_KEY = "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";
+		String msg = "If you receive this message, publishing a message to an Amazon SNS topic works.";
+		PublishRequest publishRequest = new PublishRequest("arn:aws:sns:us-east-1:118198795607:Sample", msg);
+		AmazonSNSClient snsClient = new AmazonSNSClient(new BasicAWSCredentials(ACCESS_KEY, SECRET_KEY));
+		PublishResult result = snsClient.publish(new PublishRequest()
+				  .withTopicArn("arn:aws:sns:us-east-1:118198795607:Sample")
+				  .withMessage(msg));
+				System.out.println("Msg ID:"+result.getMessageId());
+
+	}
+}

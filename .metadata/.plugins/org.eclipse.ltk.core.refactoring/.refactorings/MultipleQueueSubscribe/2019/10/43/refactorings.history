@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename compilation unit &apos;com.amazonaws.samples.Queue.java&apos; to &apos;SQSQueue.java&apos;&#x0D;&#x0A;- Original project: &apos;MultipleQueueSubscribe&apos;&#x0D;&#x0A;- Original element: &apos;com.amazonaws.samples.Queue.java&apos;&#x0D;&#x0A;- Renamed element: &apos;com.amazonaws.samples.SQSQueue.java&apos;" description="Rename compilation unit &apos;Queue.java&apos;" flags="2" id="org.eclipse.jdt.ui.rename.compilationunit" input="/src\/main\/java&lt;com.amazonaws.samples{Queue.java" name="SQSQueue.java" references="false" stamp="1571994112583" version="1.0"/>
+</session>

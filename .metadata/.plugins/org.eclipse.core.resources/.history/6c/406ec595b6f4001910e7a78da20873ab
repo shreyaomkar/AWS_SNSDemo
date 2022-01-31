@@ -1,0 +1,30 @@
+package com.amazonaws.samples;
+
+import com.amazonaws.auth.BasicAWSCredentials;
+import com.amazonaws.services.sns.AmazonSNSClient;
+import com.amazonaws.services.sns.model.PublishRequest;
+import com.amazonaws.services.sns.model.PublishResult;
+
+public class SNSApplication 
+{
+
+	public static void main(String[] args)
+	{
+		String ACCESS_KEY = "AKIARXBJSPVLQJESECGS";
+        String SECRET_KEY = "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";
+        AmazonSNSClient snsClient = new AmazonSNSClient(new  BasicAWSCredentials(ACCESS_KEY, SECRET_KEY));
+        String message = "Hello from SNS";
+        String phoneNumber = "+917709618839";  // Ex: +91XXX4374XX
+        sendSMSMessage(snsClient, message, phoneNumber);
+
+	}
+	
+	public static void sendSMSMessage(AmazonSNSClient snsClient,String message, String phoneNumber) 
+	{
+		PublishResult result = snsClient.publish(new PublishRequest()
+		  .withMessage(message)
+		  .withPhoneNumber(phoneNumber));
+		System.out.println(result); // Prints the message ID.
+	}
+
+}
